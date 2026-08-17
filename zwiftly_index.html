@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zwiftly - AI Automation för SME</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #001a4d 0%, #0066ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 30px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0066ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f9ff 0%, #ffffff 100%);
+        }
+
+        .hero-logo {
+            margin-bottom: 40px;
+        }
+
+        .hero-logo img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #001a4d;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: #0066ff;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #001a4d 0%, #0066ff 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #001a4d;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #001a4d;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .about-text li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .about-text li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066ff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #001a4d 0%, #0066ff 100%);
+            height: 400px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f9f9f9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #0066ff;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #001a4d;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 100px 0;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .result-item h3 {
+            font-size: 36px;
+            color: #0066ff;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .result-item p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #001a4d 0%, #0066ff 100%);
+            color: white;
+        }
+
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-button {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            color: #0066ff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            background: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background: #001a4d;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .tagline {
+                font-size: 16px;
+            }
+
+            .about-grid,
+            .services-grid,
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 12px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .hero-logo img {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Zwiftly</div>
+                <nav>
+                    <a href="#about">Om oss</a>
+                    <a href="#services">Tjänster</a>
+                    <a href="#contact">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-logo">
+                <p style="font-size: 60px; margin-bottom: 20px;">⚡</p>
+                <h1>Zwiftly</h1>
+            </div>
+            <p class="tagline">AUTOMATE. INTELLIGENTLY. GROW.</p>
+            <p style="font-size: 18px; color: #666; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Vi automatiserar repetitiva processer så du kan fokusera på det som skapar värde.
+            </p>
+            <a href="#contact" class="cta-primary">Kom igång</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Vad är Zwiftly?</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>AI automation för tillverkande SME</h2>
+                    <p>
+                        Vi hjälper småföretag inom tillverkning att automatisera monotona, återkommande processer. 
+                        Genom att implementera intelligenta automationer kan du frigöra tid för det som verkligen spelar roll.
+                    </p>
+                    <p>
+                        Vi hanterar hela implementeringen — från analys till deployment till support.
+                    </p>
+                    <ul>
+                        <li>Processanalys och optimering</li>
+                        <li>AI och automation implementation</li>
+                        <li>Integrering med dina system</li>
+                        <li>Teknisk support och underhåll</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    Din process blir mer effektiv, automatiserad och skalbar
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Vad vi erbjuder</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Process Audit</h3>
+                    <p>Vi kartlägger dina processer och identifierar vilka som kan automatiseras för bästa effekt.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Implementation</h3>
+                    <p>Vi bygger och distribuerar anpassade automationer som passar dina specifika behov.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Support & Optimering</h3>
+                    <p>Vi övervakar och optimerar automationen löpande för att säkerställa bästa resultat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <div class="container">
+            <h2 class="section-title">Det här är vad automation levererar</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <h3>↓ 60-80%</h3>
+                    <p>Mindre manuellt arbete</p>
+                </div>
+                <div class="result-item">
+                    <h3>↑ 3x</h3>
+                    <p>Snabbare processgenomkörning</p>
+                </div>
+                <div class="result-item">
+                    <h3>↑ 40%</h3>
+                    <p>Högre noggrannhet</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <h2>Låt oss automatisera tillsammans</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Namn</label>
+                        <input type="text" id="name" name="name" required placeholder="Ditt namn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-post</label>
+                        <input type="email" id="email" name="email" required placeholder="din@epost.se">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Företag</label>
+                        <input type="text" id="company" name="company" placeholder="Ditt företag">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Berätta om din situation</label>
+                        <textarea id="message" name="message" required placeholder="Vilka processer vill du automatisera?"></textarea>
+                    </div>
+                    <button type="submit" class="contact-button">Skicka förfrågan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Zwiftly. Automation for intelligent growth.</p>
+            <p>Örebro, Sweden</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const message = document.getElementById('message').value;
+            
+            // Skapa mailto-länk
+            const subject = `Ny kontaktförfrågan från ${name}`;
+            const body = `Namn: ${name}\nE-post: ${email}\nFöretag: ${company}\n\nMeddelande:\n${message}`;
+            const mailtoLink = `mailto:abdirashidhussen@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            window.location.href = mailtoLink;
+        });
+
+        // Smooth scroll för navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

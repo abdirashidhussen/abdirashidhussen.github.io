@@ -225,25 +225,7 @@
             padding: 100px 0;
         }
 
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            text-align: center;
-            margin-top: 50px;
-        }
 
-        .result-item h3 {
-            font-size: 36px;
-            color: #0066ff;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .result-item p {
-            color: #666;
-            font-size: 16px;
-        }
 
         /* Contact Section */
         .contact {
@@ -342,8 +324,7 @@
             }
 
             .about-grid,
-            .services-grid,
-            .results-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -385,10 +366,8 @@
     <section class="hero">
         <div class="container">
             <div class="hero-logo">
-                <p style="font-size: 60px; margin-bottom: 20px;">⚡</p>
-                <h1>Zwiftly</h1>
+                <img src="zwiftly-logo.png" alt="Zwiftly" style="max-width: 400px; height: auto; margin-bottom: 40px;">
             </div>
-            <p class="tagline">AUTOMATE. INTELLIGENTLY. GROW.</p>
             <p style="font-size: 18px; color: #666; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Vi automatiserar repetitiva processer så du kan fokusera på det som skapar värde.
             </p>
@@ -404,18 +383,12 @@
                 <div class="about-text">
                     <h2>AI automation för tillverkande SME</h2>
                     <p>
-                        Vi hjälper småföretag inom tillverkning att automatisera monotona, återkommande processer. 
-                        Genom att implementera intelligenta automationer kan du frigöra tid för det som verkligen spelar roll.
+                        Vi hjälper småföretag inom tillverkning att automatisera repetitiva processer. 
+                        Genom att frigöra tid från rutinuppgifter kan ditt team fokusera på det som utvecklar verksamheten.
                     </p>
                     <p>
-                        Vi hanterar hela implementeringen — från analys till deployment till support.
+                        Vi hanterar hela processen: vi analyserar dina arbetsflöden, bygger automationen, integrerar den med dina befintliga system och ger löpande support.
                     </p>
-                    <ul>
-                        <li>Processanalys och optimering</li>
-                        <li>AI och automation implementation</li>
-                        <li>Integrering med dina system</li>
-                        <li>Teknisk support och underhåll</li>
-                    </ul>
                 </div>
                 <div class="about-image">
                     Din process blir mer effektiv, automatiserad och skalbar
@@ -430,19 +403,19 @@
             <h2 class="section-title">Vad vi erbjuder</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🔍</div>
-                    <h3>Process Audit</h3>
-                    <p>Vi kartlägger dina processer och identifierar vilka som kan automatiseras för bästa effekt.</p>
+                    <div class="service-icon">1.</div>
+                    <h3>Granskning</h3>
+                    <p>Vi analyserar dina processer och identifierar var automation skapar mest värde.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>Implementation</h3>
-                    <p>Vi bygger och distribuerar anpassade automationer som passar dina specifika behov.</p>
+                    <div class="service-icon">2.</div>
+                    <h3>Implementering</h3>
+                    <p>Vi bygger och integrerar automationen med dina befintliga system.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Support & Optimering</h3>
-                    <p>Vi övervakar och optimerar automationen löpande för att säkerställa bästa resultat.</p>
+                    <div class="service-icon">3.</div>
+                    <h3>Löpande stöd</h3>
+                    <p>Vi övervakar automationen och gör nödvändiga justeringar när du behöver.</p>
                 </div>
             </div>
         </div>
@@ -451,20 +424,17 @@
     <!-- Results Section -->
     <section class="results">
         <div class="container">
-            <h2 class="section-title">Det här är vad automation levererar</h2>
-            <div class="results-grid">
-                <div class="result-item">
-                    <h3>↓ 60-80%</h3>
-                    <p>Mindre manuellt arbete</p>
-                </div>
-                <div class="result-item">
-                    <h3>↑ 3x</h3>
-                    <p>Snabbare processgenomkörning</p>
-                </div>
-                <div class="result-item">
-                    <h3>↑ 40%</h3>
-                    <p>Högre noggrannhet</p>
-                </div>
+            <h2 class="section-title">Vad automation levererar</h2>
+            <div style="max-width: 700px; margin: 50px auto; line-height: 1.8;">
+                <p style="font-size: 16px; color: #555; margin-bottom: 20px;">
+                    Genom att automatisera repetitiva processer kan du reducera manuell bearbetningstid betydligt. Ofta 30 till 50 procent beroende på processens struktur. Viktigare än siffror: du friställer kapacitet för arbete som faktiskt utvecklar verksamheten.
+                </p>
+                <p style="font-size: 16px; color: #555; margin-bottom: 20px;">
+                    Vanliga automationskandidater är dataregistrering, ordergenerering, fakturahantering och rapportsamling mellan system.
+                </p>
+                <p style="font-size: 16px; color: #555;">
+                    Vi granskar dina processer för att identifiera vad som lönar sig att automatisera.
+                </p>
             </div>
         </div>
     </section>
@@ -474,7 +444,7 @@
         <div class="container">
             <div class="contact-wrapper">
                 <h2>Låt oss automatisera tillsammans</h2>
-                <form id="contactForm">
+                <form id="contactForm" method="POST">
                     <div class="form-group">
                         <label for="name">Namn</label>
                         <input type="text" id="name" name="name" required placeholder="Ditt namn">
@@ -493,6 +463,9 @@
                     </div>
                     <button type="submit" class="contact-button">Skicka förfrågan</button>
                 </form>
+                <div id="submitMessage" style="display: none; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 6px; color: white; text-align: center;">
+                    Tack för din förfrågan! Vi kommer att kontakta dig snart.
+                </div>
             </div>
         </div>
     </section>
@@ -500,26 +473,40 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Zwiftly. Automation for intelligent growth.</p>
+            <p>&copy; 2026 Zwiftly</p>
             <p>Örebro, Sweden</p>
         </div>
     </footer>
 
     <script>
+        const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxGVFQ0wGypC-knOiNDmWOuFJuv46YvHjEVo8fcCi9OTbJnzcHAXl3-l1PUp67tMvHb8w/exec';
+        
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('message').value;
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                company: formData.get('company'),
+                message: formData.get('message')
+            };
             
-            // Skapa mailto-länk
-            const subject = `Ny kontaktförfrågan från ${name}`;
-            const body = `Namn: ${name}\nE-post: ${email}\nFöretag: ${company}\n\nMeddelande:\n${message}`;
-            const mailtoLink = `mailto:abdirashidhussen@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            window.location.href = mailtoLink;
+            fetch(GOOGLE_APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('submitMessage').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Det uppstod ett fel. Försök igen senare.');
+            });
         });
 
         // Smooth scroll för navigation

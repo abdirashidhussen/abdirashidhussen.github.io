@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="56" viewBox="0 0 240 56">
+<g transform="translate(2,4)" stroke="#14243F" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5">
+<path d="M31.96 15.64 A13 13 0 1 0 31.96 32.36"/>
+<line x1="35" y1="24" x2="44" y2="24"/>
+<path d="M40 19 L45 24 L40 29"/>
+</g>
+<text x="62" y="37" font-family="Inter, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="27" font-weight="600" letter-spacing="0.4" fill="#14243F">Zwiftly</text>
+</svg>
